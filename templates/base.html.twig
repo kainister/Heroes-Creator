@@ -19,6 +19,19 @@
                     <a class="nav-link {% if current_menu is defined and current_menu == "create" %}active{% endif %}" href="{{ path('heroes.create') }}">Create Hero</a>
                 </li>
             </ul>
+            {% if app.user %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                    </li>
+                </ul>
+            {% else %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+                    </li>
+                </ul>
+            {% endif %}
         </div>
     </nav>
         {% block body %}{% endblock %}
