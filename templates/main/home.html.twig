@@ -1,0 +1,22 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Mes Super-Héros</h1>
+    </div>
+
+    <div class="container">
+        <h1>Les derniers héros créé :</h1>
+        <div class="row flex">
+            {% for hero in heroes %}
+                <div class="card-body">
+                    <h5 class="card-name">
+                        <a href="{{ path('hero.show', {id: hero.id, slug: hero.slug}) }}">{{ hero.name }}</a>
+                    </h5>
+                    <div class="card-text">Sexe: {{ hero.gender }} | Age: {{ hero.age }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
